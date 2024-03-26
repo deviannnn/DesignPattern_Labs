@@ -1,0 +1,40 @@
+﻿@model IEnumerable<WebAppQLSV.Models.Student>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<main>
+    <section class="row" aria-labelledby="aspnetTitle">
+        <h1 id="title">Student List</h1>
+        <p class="lead">
+            <table class="table table-responsive">
+                <thead>
+                    <tr>
+                        <th>Code</th>
+                        <th>Name</th>
+                        <th>Birthday</th>
+                        <th>Class</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var st in Model)
+                    {
+                        <tr>
+                            <td>@st.Code</td>
+                            <td>@st.Name</td>
+                            <td>@st.Birthday</td>
+                            <td>@st.Class</td>
+                            <td>
+                                <a href="@Url.Action("Edit", "Home", new { id = st.Code })" class="btn btn-info btn-md">Edit</a>
+                                <a href="@Url.Action("Delete", "Home", new { id = st.Code })" class="btn btn-danger btn-md">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </p>
+        <p><a href="/Home/Create" class="btn btn-primary btn-md">Add Student</a></p>
+    </section>
+ </main>
