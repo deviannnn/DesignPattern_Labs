@@ -1,0 +1,23 @@
+﻿@model IEnumerable<NewsWebApp.Models.NewsLocal>
+
+<main>
+    <section class="row" aria-labelledby="aspnetTitle">
+        <h1 class="text-bg-secondary text-center" id="title">@ViewBag.Title</h1>
+    </section>
+
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <section class="col-md-4" aria-labelledby="gettingStartedTitle">
+                <h3 id="gettingStartedTitle">@item.Title</h3>
+                <p>
+                    @(item.Content.Substring(0, 150) + "...")
+                </p>
+                <p>
+                    @Html.ActionLink("Xem thêm »", "Details", "Home", new { id = item.Id }, new { @class = "btn btn-outline-dark" })
+                </p>
+            </section>
+        }
+
+    </div>
+</main>
