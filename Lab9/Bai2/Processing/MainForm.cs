@@ -21,7 +21,7 @@ namespace Processing
                 mySubject = new WorkingSubject(n);
                 mySubject.RegisterObserver(this);
                 progressBar1.Value = 0;
-                progressBar1.Maximum = n;
+                progressBar1.Maximum = n;c
                 tbxInput.Enabled = btnStart.Enabled = false;
                 ((WorkingSubject)mySubject).Start();
             }
